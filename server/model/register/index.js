@@ -7,14 +7,14 @@ export default async function registerModel(
   lastname,
   avatar
 ) {
-  const user = new userSchema({
-    email,
+  const user = await userSchema.create({
+    email: email,
     password,
     firstname,
     lastname,
     avatar,
     info: "",
   });
-  const newUser = await user.save()
-  return newUser;
+  // const newUser = await user.save()
+  return user;
 }
