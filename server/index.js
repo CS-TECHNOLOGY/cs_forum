@@ -3,7 +3,7 @@ import cors from "cors";
 import mongoose from "mongoose";
 import loginRouter from "./router/login.js";
 import registerRouter from "./router/register.js";
-
+import getUserInfoRouter from './router/getUserInfo.js';
 const app = express();
 
 const PORT = process.env.PORT || 5000;
@@ -17,6 +17,7 @@ app.get("/", function (req, res) {
 
 app.use("/auth", loginRouter);
 app.use("/auth", registerRouter);
+app.use("/auth", getUserInfoRouter);
 
 const DATABASE_URL =
   "mongodb+srv://cstech:CYTsaGXVigd5tC0h@cluster0.7bwn0.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
