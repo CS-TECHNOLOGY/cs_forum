@@ -1,8 +1,8 @@
 import HttpException from "../../../common/helpers/HttpException";
 import userSchema from "../../../schema/userSchema";
 
-export default async function getUserInfo(token) {
-  const info = await userSchema.findById(token);
+export default async function getUserInfo(id) {
+  const info = await userSchema.findById(id);
   if (info) {
     return info;
   } else {

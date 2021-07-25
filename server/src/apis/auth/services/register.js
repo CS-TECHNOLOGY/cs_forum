@@ -1,7 +1,8 @@
+import jwt from 'jsonwebtoken';
 import HttpException from '../../../common/helpers/HttpException';
 import userSchema from '../../../schema/userSchema';
 
-export default async function registerModel(
+export default async function registerService(
   email,
   password,
   firstName,
@@ -17,8 +18,11 @@ export default async function registerModel(
       avatar,
       info: '',
     });
-    return user;
+
+    return {
+      token: jwt.sign(user.id, '123'),
+    };
   } catch (error) {
-    throw new HttpException(400, 'dang nhap that bai');
+    throw new HttpException(400, error.message);
   }
 }

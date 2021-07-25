@@ -1,8 +1,8 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
-const userSchema = mongoose.Schema(
+const schema = new mongoose.Schema(
   {
-    email: { type: String, required: true },
+    email: { type: String, required: true, unique: true, index: true },
     password: { type: String, required: true },
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
@@ -13,5 +13,6 @@ const userSchema = mongoose.Schema(
     timestamps: true,
   }
 );
-
-export default mongoose.model("User", userSchema);
+const userSchema = mongoose.model('users', schema);
+userSchema.createIndexes();
+export default userSchema;

@@ -1,19 +1,16 @@
-import registerModel from '../models/register';
+import registerService from "../services/register";
 
 const registerController = async (req, res, next) => {
   const { email, password, firstName, lastName, avatar } = req.body;
   try {
-    const response = await registerModel(
+    const response = await registerService(
       email,
       password,
       firstName,
       lastName,
       avatar
     );
-    res.status(200).json({
-      token: response._id,
-      message: 'success',
-    });
+    res.status(200).json(response);
   } catch (error) {
     next(error);
   }
