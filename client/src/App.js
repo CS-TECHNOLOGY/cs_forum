@@ -6,7 +6,6 @@ const App = () => {
   useEffect(async () => {
     const response = await fetch("http://localhost:5000/");
     const jsonData = await response.json()
-    console.log(jsonData)
     setData(jsonData);
   }, []);
   return <div>{JSON.stringify(data)}</div>;

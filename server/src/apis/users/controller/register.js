@@ -1,11 +1,9 @@
 import registerModel from "../model/register";
 
 const registerController = async (req, res) => {
-  const { email, password, firstname, lastname, avatar } = req.body;
-  console.log( email, password, firstname, lastname, avatar )
+  const { email, password, firstName, lastName, avatar } = req.body;
   try {
-    const response = await registerModel( email, password, firstname, lastname, avatar );
-    console.log(response)
+    const response = await registerModel( email, password, firstName, lastName, avatar );
     res.status(200).json({
         token : response._id,
         message : "success"    

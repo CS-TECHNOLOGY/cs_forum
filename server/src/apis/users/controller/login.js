@@ -1,7 +1,6 @@
 import loginModel from "../model/login/index.js";
 
 const loginController = async (req, res) => {
-    console.log(req.body);
     const email = req.body.email;
     const password= req.body.password;
     try {
