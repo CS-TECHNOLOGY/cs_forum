@@ -1,8 +1,8 @@
-import getUserInfo from "../model/getUserInfo/index.js";
+import getUserInfo from "../models/getUserInfo";
 
 const getUserInfoController = async (req, res) => {
     console.log(req.body);
-    const token = req.query.id;
+    const token = req.params.id;
     try {
         const response = await getUserInfo(token);
         res.status(200).json(response);
