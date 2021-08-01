@@ -1,4 +1,5 @@
 import jwt from 'jsonwebtoken';
+import bcrypt from 'bcrypt';
 import HttpException from '../../../common/helpers/HttpException';
 import userSchema from '../../../schema/userSchema';
 
