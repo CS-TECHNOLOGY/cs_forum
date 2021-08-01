@@ -1,17 +1,17 @@
 import Image from 'next/image';
 import moment from 'moment';
 
-import styles from '../styles/Home.module.scss';
+// import styles from '../styles/Home.module.scss';
 import Layout from '../components/Layout';
-
+import { EachPostCard } from '../styles/Home.styled';
 
 export default function Home() {
   return (
     <Layout>
       {/* <div> */}
       {[1, 2, 3, 4, 5, 6].map((item) => (
-        <div className={styles.each_post_card} key={item}>
-          <div className={styles.post_arthur}>
+        <EachPostCard key={item}>
+          <div className="post_arthur">
             <img
               src="https://source.unsplash.com/random"
               width={48}
@@ -19,12 +19,13 @@ export default function Home() {
             />
             <div>
               <a>Nguyen Duc Huynh </a>
+              <br />
               <i>{moment().calendar()}</i>
             </div>
           </div>
 
-          <div className={styles.post_info}>
-            <a className={styles.post_title}>
+          <div className="post_info">
+            <a className="post_title">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea illo
               et atque voluptatibu
             </a>
@@ -39,7 +40,7 @@ export default function Home() {
               amet dolore incidunt in porro numquam ad praesentium nemo. Fugit,
               eos.
             </p>
-            <div className={styles.react_bar_icons}>
+            <div className="react_bar_icons">
               <div>
                 <Image
                   src="/icons/like.svg"
@@ -64,9 +65,24 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </div>
+        </EachPostCard>
       ))}
       {/* </div> */}
     </Layout>
   );
 }
+
+// export async function getStaticProps(context) {
+//   const res = await fetch(`https://.../data`)
+//   const data = await res.json()
+
+//   if (!data) {
+//     return {
+//       notFound: true,
+//     }
+//   }
+
+//   return {
+//     props: { data }, // will be passed to the page component as props
+//   }
+// }

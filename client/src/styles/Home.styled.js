@@ -1,9 +1,11 @@
-.each_post_card {
+import styled from 'styled-components'
+export const EachPostCard = styled.div`
   margin: 1em 0 2em;
   padding: 0.5em 1em 2em;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 0 0 1px rgba(8, 9, 10, 0.1);
+  cursor: pointer;
 
   a {
     margin: 0;
@@ -30,8 +32,8 @@
       font-weight: 700;
     }
 
-    i{
-        margin-right: 1em;
+    i {
+      margin-right: 1em;
     }
 
     .react_bar_icons {
@@ -45,4 +47,4 @@
       }
     }
   }
-}
+`;
