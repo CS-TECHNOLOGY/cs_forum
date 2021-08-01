@@ -1,13 +1,10 @@
 import postSchema from "../../../schema/postSchema";
-import userSchema from "../../../schema/userSchema";
 
-export default async function getNewfeedService(userid, pageNum) {
-  const user = await userSchema.findById(userid).select("-password").exec();
-  if (!user) throw new HttpException(400, "User id is not exist");
+export default async function getNewFeedService(pageNum) {
   var perPage = 10;
-  const newfeed = postSchema
+  const newFeed = postSchema
     .find()
     .limit(perPage)
     .skip(perPage * pageNum);
-  return newfeed;
+  return newFeed;
 }
