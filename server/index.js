@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 import rootRouter from './src/apis/router.js';
 import errorHandlers from './src/common/middleware/errorHandlers.js';
 import Logger from './src/common/helpers/logger.js';
+import csLog from './l.js';
 dotenv.config();
 
 const app = express();
@@ -26,7 +27,10 @@ mongoose
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
-  .then(() => Logger.info('database is connecting ...'))
+  .then(() => {
+    Logger.info('database is connecting ...');
+    csLog();
+  })
   .catch((err) => Logger.error(`connect fail: ${err}`));
 
 // router

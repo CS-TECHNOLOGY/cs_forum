@@ -3,7 +3,6 @@ import userSchema from '../../../schema/userSchema';
 
 export default async function updateUserInfoService(update, id) {
   let ob = JSON.parse(JSON.stringify(update));
-  console.log(ob);
   try {
     const user = await userSchema.findById(id).select('-password');
     if (!user) {
